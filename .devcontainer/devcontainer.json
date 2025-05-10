@@ -1,26 +1,17 @@
 {
   "name": "Docker",
   "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "USERNAME": "${localEnv:USER}",
-      "IMAGE": "DOCKER_IMAGE",
-      "REGISTRY": "DOCKER_REGISTRY"
-    }
+    "dockerfile": "Dockerfile"
   },
   "runArgs": [],
   "mounts": [
     "source=${localEnv:HOME},target=/home/${localEnv:USER}/hosthome,type=bind,consistency=cached"
   ],
   "userEnvProbe": "loginInteractiveShell",
-  "remoteEnv": {
-    "TARGET_GDB_IP": "localhost"
-  },
   "containerEnv": {
-    "TARGET_GDB_IP": "localhost",
     "HISTFILE": "${containerWorkspaceFolder}/.bash_history"
   },
-  "remoteUser": "${localEnv:USER}",
+  "remoteUser": "root",
   "customizations": {
     "vscode": {
         "extensions": [
