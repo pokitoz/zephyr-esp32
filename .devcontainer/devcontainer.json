@@ -1,0 +1,42 @@
+{
+  "name": "Docker",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "${localEnv:USER}",
+      "IMAGE": "DOCKER_IMAGE",
+      "REGISTRY": "DOCKER_REGISTRY"
+    }
+  },
+  "runArgs": [],
+  "mounts": [
+    "source=${localEnv:HOME},target=/home/${localEnv:USER}/hosthome,type=bind,consistency=cached"
+  ],
+  "userEnvProbe": "loginInteractiveShell",
+  "remoteEnv": {
+    "TARGET_GDB_IP": "localhost"
+  },
+  "containerEnv": {
+    "TARGET_GDB_IP": "localhost",
+    "HISTFILE": "${containerWorkspaceFolder}/.bash_history"
+  },
+  "remoteUser": "${localEnv:USER}",
+  "customizations": {
+    "vscode": {
+        "extensions": [
+          "benjamin-simmonds.pythoncpp-debug",
+          "eamodio.gitlens",
+          "marus25.cortex-debug",
+          "ms-azuretools.vscode-docker",
+          "ms-python.python",
+          "ms-vscode.cmake-tools",
+          "ms-vscode.cpptools",
+          "ms-vscode.cpptools-extension-pack",
+          "streetsidesoftware.code-spell-checker",
+          "trond-snekvik.kconfig-lang",
+          "twxs.cmake",
+          "zxh404.vscode-proto3"
+      ]
+    }
+  }
+}
