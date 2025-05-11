@@ -7,7 +7,7 @@ Setup "Dev Containers", "Remote Development" in VSCode to build.
 Settings -> Dev Containers -> Execute in WSL (Applies to all profiles)
 sudo apt install docker-buildx
 
-
+git config --global --add safe.directory /workdir/zephyr
 west build -p always -b esp32_devkitc/esp32/procpu
 
 

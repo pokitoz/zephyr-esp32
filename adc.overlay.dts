@@ -1,0 +1,6 @@
+&adc1 {
+    status = "okay";
+    // There are 2 ADC on the board. ADC_1 is ADC0
+    // ADC_2_0 is pin 24 (labelled 4)
+    // Channel 0
+};
